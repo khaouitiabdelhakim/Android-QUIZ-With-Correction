@@ -1090,3 +1090,324 @@ override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanc
 [Reference](https://developer.android.com/studio/build/shrink-code)
 
 
+#### Q61. Which layout hierarchy is likely to be drawn the most quickly?
+
+- [x] A
+      ![img](https://i.imgur.com/mT08jag.png?raw=png)
+
+> [!NOTE]
+> Layout A is likely to be drawn the most quickly because it has a simple hierarchy with fewer nested views compared to the other layouts.
+
+#### Q62. What is the current recommended way to handle long-running background tasks?
+
+- [x] WorkManager
+- [ ] AsyncTask
+- [ ] IntentService
+- [ ] Thread
+
+[Reference](https://developer.android.com/guide/background)
+
+> [!NOTE]
+> WorkManager is the recommended way to handle long-running background tasks on Android.
+
+#### Q63. You need to provide your users with certain features of your app on-demand or as instant experiences through Google Play. Which type of module should you create?
+
+- [ ] library module
+- [x] dynamic feature module
+- [ ] Android app module
+- [ ] Google Cloud module
+
+1. [Reference](https://youtu.be/QdfStuj-MuA?t=86)
+2. [Reference](https://developer.android.com/guidgite/playcore/feature-delivery/on-demand)
+
+> [!NOTE]
+> To provide features on-demand or as instant experiences through Google Play, you should create dynamic feature modules.
+
+#### Q64. Which approach is not recommended for providing a useful offline state in your app?
+
+- [ ] caching data
+- [ ] storing data locally
+- [ ] queuing outbound requests to action when connectivity has been lost
+- [x] always notifying users that connectivity has been lost
+
+[Reference](https://developer.android.com/docs/quality-guidelines/build-for-billions/connectivity#network-offline)
+
+> [!NOTE]
+> Always notifying users that connectivity has been lost is not recommended because it can be disruptive and may not always be necessary.
+
+#### Q65. If you need your app code to inspect information about the current build, which class should you use?
+
+- [x] `BuildConfig`
+- [ ] `BuildInfo`
+- [ ] `ConfigParams`
+- [ ] `ConfigInfo`
+
+> [!NOTE]
+> To inspect information about the current build, you should use the `BuildConfig` class.
+
+#### Q66. In the ConstraintLayout below, why wouldn't the button expand to fill the width of the parent?
+
+```xml
+    <androidx.constraintlayout.widget.ConstrantLayout
+        ...>
+	    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstrantLayout>
+```
+
+- [ ] `The button does not have a size`
+- [x] `The button is not constrained to the end of the parent container`
+- [ ] `Buttons cannot expand beyond their default size`
+- [ ] `The button should have its height set to 0dp as well`
+
+> [!NOTE]
+> The button is not constrained to the end of the parent container, so it does not expand to fill the width of the parent.
+
+#### Q67. What is not a use case for idling resources in your Espresso tests?
+
+- [ ] `managing system services`
+- [x] `processing user input events`
+- [ ] `loading data from the internet or a local data source`
+- [ ] `performing bitmap transformations`
+
+> [!NOTE]
+> Processing user input events is not a use case for idling resources in Espresso tests. Idling resources are typically used for managing system services, loading data, and performing other background tasks.
+
+#### Q68. What is not a type of resource for providing your app with strings?
+
+- [ ] `String`
+- [x] `Text`
+- [ ] `String-array`
+- [ ] `Plurals`
+
+> [!NOTE]
+> `Text` is not a type of resource for providing your app with strings. The correct types are `String`, `String-array`, and `Plurals`.
+
+#### Q69. What is not in the activity lifecycle?
+
+- [ ] `onPause()`
+- [ ] `onResume()`
+- [x] `onOpen()`
+- [ ] `onStart()`
+
+> [!NOTE]
+> `onOpen()` is not part of the activity lifecycle. The correct methods are `onPause()`, `onResume()`, and `onStart()`.
+
+#### Q70. You want to allow users to take a picture in your app. Which code snippet is the correct approach?
+
+- [ ] A
+
+```java
+  fun showCamera(view: View) {
+      Log.i(TAG, "Show camera button pressed.")
+      if (ContextCompat.shouldShowRequestPermissionRationale(thisActivity,
+      Manifest.permission.CAMERA) {
+        showCameraPreview()
+      }
+       else {
+         requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+       }
+   }
+```
+
+- [x] B
+
+```java
+  fun showCamera(view: View) {
+      Log.i(TAG, "Show camera button pressed.")
+      if (ContextCompat.checkSelfPermission(thisActivity,
+      Manifest.permission.CAMERA)
+      == PackageManager.PERMISSION_GRANTED) {
+        showCameraPreview()
+      }
+      else {
+         requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+      }
+  }
+```
+
+- [ ] C
+
+```java
+  fun showCamera(view: View) {
+      Log.i(TAG, "Show camera button pressed.")
+      showCameraPreview()
+  }
+```
+
+- [ ] D
+
+```java
+  fun showCamera(view: View) {
+      Log.i(TAG, "Show camera button pressed.")
+      if (ContextCompat.checkSelfPermission(thisActivity,
+      Manifest.permission.CAMERA)
+      != PackageManager.PERMISSION_GRANTED) {
+         showCameraPreview()
+       }
+       else {
+          requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+       }
+  }
+```
+
+These are the correct approaches for handling camera permission in an Android app. Option B is the correct implementation as it checks for the camera permission and requests it if not granted before proceeding to show the camera preview.
+
+
+#### Q71. Given the string resource below, which code snippet is valid?
+
+```
+<string name="upload_photo_notification">%1$d of %2$d photos uploaded</string>
+```
+
+- [ ] A
+
+```
+val string: String = getString(
+   R.string.upload_photo_notification,
+   "2",
+   "5"
+)
+```
+
+- [ ] B
+
+```
+val string: String = getString(
+   R.id.upload_photo_notification,
+   2,
+   5
+)
+```
+
+- [x] C
+
+```
+val string: String = getString(
+   R.string.upload_photo_notification,
+   2,
+   5
+)
+```
+
+- [ ] D
+
+```
+val string: String = getString(
+   R.id.upload_photo_notification,
+   "2",
+   "5"
+)
+```
+
+[Reference](https://developer.android.com/guide/topics/resources/string-resource#formatting-strings)
+
+#### Q72. Different languages have different rules for grammatical agreement with quantity. To support the following two strings in multiple languages in your app, what is the ideal resource definition?
+
+```
+"You have 1 day remaining"
+"You have 2 days remaining"
+```
+
+- [ ] A
+
+```
+<string name="trial_days_left_one"> You have %1$d day remaining</string>
+<string name="trial_days_left_other">You have %1$d days remaining</string>
+```
+
+- [ ] B
+
+```
+<plurals name="trial days left">
+    <plural quantity="one">You have %1$d day remaining</plural>
+    <plural quantity="other">You have %1$d days remaining</plural>
+</plurals>
+```
+
+- [x] C
+
+```
+<plurals name="trial_days_left">
+    <item quantity="one">You have %1$d day remaining</item>
+    <item quantity="other">You have %1$d days remaining</item>
+</plurals>
+```
+
+- [ ] D
+
+```
+<string name="trial_days_left">
+    <plural quantity="one">You have %1$d day remaining</plural>
+    <plural quantity="other">You have &1$d days remaining</plural>
+</string>
+```
+
+#### Q73. When would the operating system use the onTrimMemory() method?
+
+- [ ] `when the app is uninstalled`
+- [x] `when the app is backgrounded`
+- [ ] `when the device is in battery optimization mode`
+- [ ] `when network requests are made on the main thread`
+
+[Reference](https://developer.android.com/guide/topics/resources/string-resource#Plurals)
+
+#### Q74. In your app, you have a RecyclerView of items. You want to have a different configuration for portrait and landscape modes. which code snippet would allow you to best support the layout below?
+
+![img](image/Q75.png)
+
+- [ ] A
+
+```
+recyclerView.setLayoutManager(GridLayoutManager(this, 3))
+```
+
+- [x] B
+
+```
+val coulumnCount = resources.getInteger(R.integer.column_count)
+recyclerView.setLayoutManager(GridLayoutManager(this, columnCount))
+```
+
+- [ ] C
+
+```
+recyclerView.setLayoutManager(LinearLayoutManager(this))
+```
+
+- [ ] D
+
+```
+val coulumnCount = resources.getInteger(R.integer.column_count)
+recyclerView.setLayoutManager(LinearLayoutManager(this, columnCount))
+```
+
+#### Q75. You need to remove an Event based on its ID from your API, Which code snippet defines that request in Retrofit?
+
+- [ ] @DELETE("events)
+      fun deleteEvent(@Path("id") id: Long): Call<Unit>
+- [x] @DELETE("events/{id}")
+      fun deleteEvent(@Path("id") id: Long): Call<Unit>
+- [ ] @REMOVE("events/{id}")
+      fun deleteEvent(@Path("id") id: Long): Call<Unit>
+- [x] @DELETE("events/{id}")
+      fun deleteEvent(@Path("id") id: Long): Call<Unit>
+
+#### Q76. You want to allow users to take pictures in your app. Which is _not_ an advantage of creating an appropriate `intent`, instead of requesting the camera permission directly?
+
+- [ ] Users can select their favorite photo apps to take pictures.
+- [ ] You do not have to make a permission request in your app to take a picture.
+- [x] You have full control over the user experience. The app that handles the camera `intent` will respect your design choices.
+- [ ] You do not have to design the UI. The app that handles the camera `intent` will provide the UI.
+
+#### Q77. What is the current recommended way to handle long-running background tasks?
+
+- [x] WorkManager
+- [ ] AsyncTask
+- [ ] IntentService
+- [ ] Thread
