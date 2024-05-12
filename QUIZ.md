@@ -760,6 +760,333 @@ buildTypes {
 > A good way to reuse Android code is not to prefer building activities instead of fragments. Activities are generally used to represent a single screen with a user interface, whereas fragments represent a portion of a user interface. Fragments are more suitable for reuse across multiple activities.
 
 
+#### Q41. Which layout is best for large, complex hierarchies?
 
+- [ ] LinearLayout
+- [x] ConstraintLayout
+- [ ] FrameLayout
+- [ ] RelativeLayout
+
+> [!NOTE]
+> For large, complex hierarchies, ConstraintLayout is the best choice as it allows for flexible and efficient arrangement of views.
+
+#### Q42. You need to upgrade to the latest version of the Android Gradle plugin. Which file should you modify?
+
+- [ ] root_project_dir/app/build.gradle.
+- [ ] root_project_dir/settings.gradle.
+- [x] root_project_dir/build.gradle.
+- [ ] root_project_dir/app/gradle.properties.
+
+> [!NOTE]
+> To upgrade to the latest version of the Android Gradle plugin, you should modify the `build.gradle` file located in the root directory of your project.
+
+#### Q43. Why do developers often put app initialization code in the Application class?
+
+- [x] The Application class is instantiated before any other class when the process for the application is created.
+- [ ] The Application class is instantiated after any permissions requests when the process for the application is created.
+- [ ] The Application class is created each time a new Activity is launched, making it ideal for initialization code.
+- [ ] The Application class is created each time a background service is called, making it ideal for initialization code.
+
+> [!NOTE]
+> Developers often put app initialization code in the Application class because the Application class is instantiated before any other class when the process for the application is created.
+
+#### Q44. What folder should you use for your app's launcher icons?
+
+- [ ] /drawable
+- [ ] /icon
+- [x] /mipmap
+- [ ] /launcher
+
+> [!NOTE]
+> You should use the `/mipmap` folder for your app's launcher icons.
+
+#### Q45. Which drawable definition allows you to achieve the shape below?
+
+![img](image/43.jpeg)
+
+- [ ] A
+
+```xml
+	<shape xmlns:android-"http://schemas.android.com/apk/res/android"
+	    android:shape-"oval">
+	    <gradient
+               android:startColor-"@android:color/white"
+               android:endColor-"@android:color/black"
+               android:angle-"45"/>
+	</shape>
+```
+
+- [ ] B
+
+```xml
+	<rectangle xmlns:android-"http://schemas.android.com/apk/res/android">
+	   <gradient
+	      android:startColor-"@android:color/white"
+	      android:endColor-"android:color/black"
+	      android:angle-"135"/>
+	</rectangle>
+```
+
+- [x] C
+
+```xml
+	<shape xmlns:android-"http://schemas.android.com/apk/res/android"
+	   android:shape-"rectangle">
+	   <gradient
+	      android:startColor-"@android:color/white"
+	      android:endColor-"@android:color/black"
+	      android:angle-"135"/>
+	</shape>
+```
+
+- [ ] D
+
+```xml
+	<shape xmlns:android-"http://schemas.android.com/apk/res/android"
+	   android:shape-"rectangle">
+	   <gradient
+	      android:startColor-"@android:color/white"
+	      android:endColor-"@android:color/black"
+	      android:angle-"98"/>
+	</shape>
+```
+
+> [!NOTE]
+> The correct drawable definition to achieve the given shape is option C.
+
+#### Q46. Given the ConstraintLayout below, which statement is true?
+
+![img](image/44.jpeg)
+
+- [ ] View B is not horizontally constrained.
+- [ ] View C has too many constraints.
+- [x] View B is not vertically constrained.
+- [ ] View C is constrained to the parent.
+
+> [!NOTE]
+> The correct statement is that View B is not vertically constrained.
+
+#### Q47. Given this code snippet from a build.gradle file, which choice is not a possible build variant?
+
+```
+android {
+    ...
+    defaultConfig{...}
+
+    buildTypes{
+    debug{...}
+    releasae{...}
+}
+
+    flavorDimensions "environment"
+    productFlavors {
+        producation {...}
+        staging {...}
+    }
+}
+```
+
+- [ ] productionDebug.
+- [x] developmentDebug.
+- [ ] stagingDebug.
+- [ ] stagingRelease.
+
+> [!NOTE]
+> The variant `developmentDebug` is not a possible build variant based on the provided configuration.
+
+#### Q48. When should you use the androidTest directory to store your test classes?
+
+- [ ] when the tests consist only of unit tests.
+- [ ] when the number of tests to run is large(500+).
+- [ ] when the tests need to run on your local machine.
+- [x] when the tests need to run on real or virtual devices.
+
+> [!NOTE]
+> You should use the `androidTest` directory to store your test classes when the tests need to run on real or virtual devices.
+
+#### Q49. Given an APK named app-internal-debug.apk produced from the build process, which statement is likely to be true?
+
+- [ ] This APK is created on a developer machine from the debug product flavor.
+- [ ] This APK is created from the internalDebug product flavor.
+- [ ] This APK is created from the debug product flavor and internal build type.
+- [x] This APK is created from the debug build type and internal product flavor.
+
+> [!NOTE]
+> The statement likely to be true is that this APK is created from the debug build type and internal product flavor.
+
+#### Q50. When attempting to build your project, what might the following error indicate?
+
+`Conversion to Dalvik format filed: Unable to execute dex: method ID not in [0, 0xffff]: 65536`
+
+- [ ] You have included incorrect format information in your build.gradle file.
+- [ ] You have added more than 20 dependencies to your build.gradle.
+- [x] You have exceeded the total number of methods that can be referenced within a single DEX file.
+- [ ] You have a NullPointerException in your code.
+
+> [!NOTE]
+> The error `Conversion to Dalvik format filed: Unable to execute dex: method ID not in [0, 0xffff]: 65536` typically indicates that you have exceeded the total number of methods that can be referenced within a single DEX file.
+
+
+#### Q51. Which statement, in build.gradle file, correctly denotes that the corresponding module is an Android library module?
+
+- [ ] apply plugin: 'com.module.library'
+- [x] apply plugin: 'com.android.library'
+- [ ] apply plugin: 'com.module.library'
+- [ ] include plugin: 'com.module.library'
+
+> [!NOTE]
+> To denote that the corresponding module is an Android library module, you should use `apply plugin: 'com.android.library'`.
+
+#### Q52. Given the following dimens.xml file, how would you define an ImageView with medium spacing at the bottom?
+
+```xml
+<?xml version=1.0 encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="spacing_large">12dp</dimen>
+</resources>
+```
+
+- [ ] A
+
+```xml
+<ImageView
+   android:id=@+id/image_map_pin"
+   android:layout_width="wrap_content"
+   android:layout_heignt="wrap_content"
+   android:src=@drawable/map_pin />
+```
+
+- [ ] B
+
+```xml
+<ImageView
+   android:id=@+id/image_map_pin"
+   android:layout_width="wrap_content"
+   android:layout_heignt="wrap_content"
+   androi:layout_botttom="@dimen/spacing_medium"
+   android:src=@drawable/map_pin />
+```
+
+- [ ] C
+
+```xml
+<ImageView
+   android:id=@+id/image_map_pin"
+   android:layout_width="wrap_content"
+   android:layout_heignt="wrap_content"
+   android:layout_marginBottom="@resources/spacing_medium"
+   android:src=@drawable/map_pin />
+```
+
+- [x] D
+
+```xml
+<ImageView
+   android:id=@+id/image_map_pin"
+   android:layout_width="wrap_content"
+   android:layout_heignt="wrap_content"
+   android:layout_marginBottom="@dimen/spacing_medium"
+   android:src=@drawable/map_pin />
+```
+
+> [!NOTE]
+> To define an ImageView with medium spacing at the bottom, you should use option D and reference the `spacing_medium` dimension resource.
+
+#### Q53. what is not a benefit of externalizing app resources such as images and strings from a code?
+
+- [ ] It allows Android to choose the appropriate resource based on the current configuration during runtime.
+- [x] It allows you to have more performant applications because the code and resources are separated.
+- [ ] It allows you to provide a different UI experience based on the user's language settings.
+- [ ] It allows you to provide a different UI experience based on the user's device size.
+
+> [!NOTE]
+> The benefit mentioned in option B is not accurate. Externalizing app resources does not directly lead to more performant applications because the code and resources are separated.
+
+#### Q54. What is the chief purpose of line five in this code snippet?
+
+```java
+override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState) setContentView(R.layout.activity_post_create)
+
+	if (savedInstanceState != null) return
+
+	val fragment = CreatePostFragment()
+		supportFragmentManager
+		.beginTransaction()
+		.add(R.id. fragment_container, fragment)
+		.commit()
+
+}
+```
+
+- [ ] to make sure that the activity finishes when the savedInstanceState is not null
+- [x] to make sure that the activity creates a new fragment each time it is restored from a previous state
+- [ ] to prevent the display of two fragments side by side in cases where the activity is restored from a previous state
+- [ ] to prevent the creation of overlapping fragments in cases where the activity is restored from a previous state
+
+> [!NOTE]
+> The chief purpose of line five in this code snippet is to ensure that the activity creates a new fragment each time it is restored from a previous state.
+
+#### Q55. Which component is not an entry point through which the system or a user can enter your app?
+
+- [ ] activity
+- [ ] content provider
+- [x] fragment
+- [ ] service
+
+> [!NOTE]
+> Fragments are not entry points through which the system or a user can enter your app. They are typically hosted within activities and do not directly receive user interactions or system events.
+
+#### Q56. What should you use to display a large, scrolling list of elements?
+
+- [ ] ListView
+- [x] Recycler View
+- [ ] LinearLayout
+- [ ] Scrollview
+
+> [!NOTE]
+> You should use a RecyclerView to display a large, scrolling list of elements as it provides better performance and memory usage compared to a ListView.
+
+#### Q57. You have created an AboutActivity class that displays details about your app. Which code snippet allows you to launch your activity?
+
+- [ ] `Intent(this, AboutActivity::class).also { intent -> startService(intent)}`
+- [x] `Intent(this, AboutActivity::class.java).also { intent -> startActivity(intent)}`
+- [ ] `Intent(this, AboutActivity::class).also { intent -> activity(intent)}`
+- [ ] `Intent(this, AboutActivity::class).also { intent -> startActivity(intent)}`
+
+**Explanation**: `Intent(Context packageContext, Class<?> cls) Notice: Class not KClass`
+
+#### Q58. What is the use of AndroidManifest.xml file?
+
+- [x] It describes the component of the application
+- [ ] It declares the minimum level of the Android API that the application requires
+- [ ] It facilitates providing a unique name for the application by specifying the package name
+- [ ] All of the above
+
+> [!NOTE]
+> The AndroidManifest.xml file primarily describes the components of the application, such as activities, services, broadcast receivers, and content providers.
+
+#### Q59. Which attribute of the element <uses-sdk> is used to specify the minimum API Level required for the application to run?
+
+- [ ] android:targetSdkVersion
+- [x] android:minSdkVersion
+- [ ] android:maxSdkVersion
+- [ ] None of the above
+
+> [!NOTE]
+> The `android:minSdkVersion` attribute of the `<uses
+
+-sdk>` element is used to specify the minimum API Level required for the application to run.
+
+#### Q60. To shrink your code in release builds, what tool does Android Studio use?
+
+- [x] R8
+- [ ] ProGuard
+- [ ] Shrinker
+- [ ] D8
+
+**Explanation**: `When you build your project using Android Gradle plugin 3.4.0 or higher, the plugin no longer uses ProGuard to perform compile-time code optimization. Instead, the plugin works with the R8 compiler to handle`
+
+[Reference](https://developer.android.com/studio/build/shrink-code)
 
 
