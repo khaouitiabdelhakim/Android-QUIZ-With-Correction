@@ -1258,7 +1258,6 @@ override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanc
 
 These are the correct approaches for handling camera permission in an Android app. Option B is the correct implementation as it checks for the camera permission and requests it if not granted before proceeding to show the camera preview.
 
-
 #### Q71. Given the string resource below, which code snippet is valid?
 
 ```
@@ -1306,6 +1305,8 @@ val string: String = getString(
 ```
 
 [Reference](https://developer.android.com/guide/topics/resources/string-resource#formatting-strings)
+> [!NOTE]
+> In option C, we correctly reference the string resource ID `R.string.upload_photo_notification`.
 
 #### Q72. Different languages have different rules for grammatical agreement with quantity. To support the following two strings in multiple languages in your app, what is the ideal resource definition?
 
@@ -1348,6 +1349,9 @@ val string: String = getString(
 </string>
 ```
 
+> [!NOTE]
+> Option C correctly defines a plural resource with items for different quantities.
+
 #### Q73. When would the operating system use the onTrimMemory() method?
 
 - [ ] `when the app is uninstalled`
@@ -1356,6 +1360,8 @@ val string: String = getString(
 - [ ] `when network requests are made on the main thread`
 
 [Reference](https://developer.android.com/guide/topics/resources/string-resource#Plurals)
+> [!NOTE]
+> `onTrimMemory()` is called when the operating system is running low on memory and needs to reclaim resources, typically when apps are backgrounded.
 
 #### Q74. In your app, you have a RecyclerView of items. You want to have a different configuration for portrait and landscape modes. which code snippet would allow you to best support the layout below?
 
@@ -1387,6 +1393,9 @@ val coulumnCount = resources.getInteger(R.integer.column_count)
 recyclerView.setLayoutManager(LinearLayoutManager(this, columnCount))
 ```
 
+> [!NOTE]
+> Option B reads the column count from resources, allowing for easy configuration in different screen orientations.
+
 #### Q75. You need to remove an Event based on its ID from your API, Which code snippet defines that request in Retrofit?
 
 - [ ] @DELETE("events)
@@ -1398,6 +1407,9 @@ recyclerView.setLayoutManager(LinearLayoutManager(this, columnCount))
 - [x] @DELETE("events/{id}")
       fun deleteEvent(@Path("id") id: Long): Call<Unit>
 
+> [!NOTE]
+> Option B and Option D both correctly define a Retrofit DELETE request with a path parameter for the event ID.
+
 #### Q76. You want to allow users to take pictures in your app. Which is _not_ an advantage of creating an appropriate `intent`, instead of requesting the camera permission directly?
 
 - [ ] Users can select their favorite photo apps to take pictures.
@@ -1405,9 +1417,15 @@ recyclerView.setLayoutManager(LinearLayoutManager(this, columnCount))
 - [x] You have full control over the user experience. The app that handles the camera `intent` will respect your design choices.
 - [ ] You do not have to design the UI. The app that handles the camera `intent` will provide the UI.
 
+> [!NOTE]
+> While using an intent provides flexibility in the choice of photo apps and eliminates direct permission requests, it does not give full control over the user experience, as different apps may have different UI designs.
+
 #### Q77. What is the current recommended way to handle long-running background tasks?
 
 - [x] WorkManager
 - [ ] AsyncTask
 - [ ] IntentService
 - [ ] Thread
+
+> [!NOTE]
+> WorkManager is the current recommended way to handle long-running background tasks in Android. It provides compatibility with different versions of Android and offers features like guaranteed execution, deferrable tasks, and respect for battery optimization.
