@@ -9,7 +9,8 @@ Sure, here's the revised version with each answer followed by a note explaining 
 - [ ] AppManifest.xml
 - [ ] ComponentManifest.xml
 
->> [!NOTE] The correct file to edit when adding features, components, and permissions to your Android app is the AndroidManifest.xml. This file contains essential information about your app and its components.
+> [!NOTE]
+> The correct file to edit when adding features, components, and permissions to your Android app is the AndroidManifest.xml. This file contains essential information about your app and its components.
 
 #### Q2. Which XML attribute should be used to make an Image View accessible?
 
