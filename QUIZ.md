@@ -2,10 +2,11 @@
 
 #### Q1. To add features, components, and permissions to your Android app, which file needs to be edited?
 
-- [x] AndroidManifest.xml
+- <span style="color:green">[x] AndroidManifest.xml</span>
 - [ ] Components.xml
 - [ ] AppManifest.xml
 - [ ] ComponentManifest.xml
+
 
 > [!NOTE]
 > The correct file to edit when adding features, components, and permissions to your Android app is the AndroidManifest.xml. This file contains essential information about your app and its components.
